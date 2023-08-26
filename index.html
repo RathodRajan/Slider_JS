@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>color</title>
+</head>
+<style>
+    .center{
+        width: 400px;
+        height: 200px;
+        margin: auto;
+        background-color: aquamarine;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      
+    }
+</style>
+
+<body>
+    <div >
+        <input type="button" value="start" onclick="start()">
+       
+
+
+        ms:- <label id="ll1"></label>
+        sec:- <label id="ll2"></label>
+        min:- <label id="ll3"></label>
+        hour:- <label id="ll4"></label> <br>
+        <label for="" id="ll6"></label> <label id="ll5"></label> <br>
+
+    </div>
+    <div class="center" id="box">
+
+    </div>
+</body>
+<script>
+
+var b=[],i=0;
+    b[0]="url(download.jpg)";
+    b[1]="url(1.jpg)";
+    b[2]="url(2.jpg)";
+    b[3]="url(3.jpg)";
+    b[4]="url(4.jpg)";
+
+    var min = 0, sec = 0; hour = 0, ms = 0;
+    
+
+
+    function counter() {
+        ms++;
+        ll1.innerHTML = ms;
+
+        if (ms == 100) {
+            sec++;
+            ll2.innerHTML = sec;
+            ms = 0;
+
+            if (sec == 60) {
+                sec = 0;
+                if (min == 60) {
+                    hour++;
+                    ll4.innerHTML = hour;
+                }
+            }
+            if(sec%2==0){
+                box.style.backgroundImage=b[i];
+                i++;
+            }
+            if(i==b.length){
+                i=0;
+            }
+            
+        }
+    }
+    function start() {
+        counter = setInterval(counter, 10);
+    }
+    
+    </script>
+    </html>
